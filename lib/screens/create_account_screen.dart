@@ -31,7 +31,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
            child: Padding(
              padding: EdgeInsets.only(left: getProportionateScreenWidth(10)),
              child: IconButton(
-               onPressed:(){} ,
+               onPressed:(){
+                 Navigator.pop(context);
+               } ,
                icon: Icon(
                  Icons.arrow_back,
                  color: Color(0xffF2F2F2),
@@ -79,7 +81,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                      )
                    ],
                  ),
-                 SizedBox(height: getProportionateScreenHeight(30),),
+                 SizedBox(height: getProportionateScreenHeight(40),),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
@@ -113,7 +115,61 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                          color: Color(0xff66000000),
                        ),
                      ),
-                 )
+                 ),
+                 SizedBox(height: getProportionateScreenHeight(15),),
+                 Column(
+                   children: [
+                     DescriptionText(
+                       text: 'By tapping Sign up you accept all',
+                     ),
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children: [
+                         ColoredText(
+                           text: 'terms',
+                             onPressed: (){
+                             print('yo! its me terms');
+                             },
+                         ),
+                         DescriptionText(
+                           text: 'and',
+                         ),
+                         ColoredText(
+                           text: 'condition',
+                           onPressed: (){
+                             print('yo! its me conditions');
+                           },
+                         ),
+                       ],
+                     ),
+                   ],
+                 ),
+                 SizedBox(height: getProportionateScreenHeight(15),),
+                 ElevatedButton(
+                   onPressed: (){
+                     setState(() {
+                     });
+                   },
+                   child: Text(
+                     'SIGN UP',
+                     style: TextStyle(
+                         color: Colors.black,
+                         fontSize: 16,
+                         fontWeight: FontWeight.w700,
+                         fontFamily: 'fonts/Poppins-Black.ttf'
+                     ),
+                   ),
+
+                   style: ElevatedButton.styleFrom(
+                       elevation: 0,
+                       shape: RoundedRectangleBorder(
+                         borderRadius: BorderRadius.all(Radius.circular(30)),
+                       ),
+                       primary: Palette.kPrimaryColor,
+                       minimumSize: Size(double.infinity, getProportionateScreenHeight(50.0))
+                   ),
+                 ),
+
                ],
              ),
            ),
@@ -194,6 +250,48 @@ class FieldEdit extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class DescriptionText extends StatelessWidget {
+  String? text;
+  DescriptionText({this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text!,
+      style: TextStyle(
+        fontSize: 14,
+        fontFamily: 'Poppins_SemiBold',
+        color: Colors.black,
+      ),
+    );
+  }
+}
+
+class ColoredText extends StatelessWidget {
+
+  ColoredText({this.text, this.onPressed});
+  String? text;
+  Function()? onPressed;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+     child: Text(
+         text!,
+       style: TextStyle(
+         fontSize: 14,
+         fontFamily: 'Poppins_SemiBold',
+         fontWeight: FontWeight.w600,
+         color: Palette.kPrimaryColor,
+       ),
+     ),
+
     );
   }
 }

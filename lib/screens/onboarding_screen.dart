@@ -11,7 +11,7 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  int selectedSlider = 0;
+  int _selectedSlider = 0;
   PageController _pageController = PageController();
 
   List<Map<String, String>> sliders = [
@@ -45,8 +45,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          onPressed: (){},
+        leading: _selectedSlider == 1 ? IconButton(
+          onPressed: (){
+            setState(() {
+              _pageController.previousPage(duration: Duration(milliseconds: 2), curve: Curves.easeOut);
+            });
+          },
           icon: Padding(
             padding: EdgeInsets.only(left: getProportionateScreenWidth(10)),
             child: Icon(
@@ -55,7 +59,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               color: Palette.kAppBarIconColor,
             ),
           ),
-        ),
+        ) : null,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -65,7 +69,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             child: PageView.builder(
               onPageChanged: (index){
                 setState(() {
-                  selectedSlider = index;
+                  _selectedSlider = index;
                 });
               },
               controller: _pageController,
@@ -91,7 +95,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ),
                 Padding(
                   padding:  EdgeInsets.symmetric(vertical: getProportionateScreenHeight(20.0), horizontal: getProportionateScreenWidth(20.0)),
-                  child: selectedSlider <= 1 ? Column(
+                  child: _selectedSlider <= 1 ? Column(
                     children: [
                       SizedBox(height: getProportionateScreenHeight(35),),
                       ElevatedButton(
@@ -193,7 +197,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       height: 6,
       width: 22,
       decoration: BoxDecoration(
-          color: selectedSlider == index ? Palette.kPageControllerColor : Color(0xffF2F2F2),
+          color: _selectedSlider == index ? Palette.kPageControllerColor : Color(0xffF2F2F2),
           borderRadius: BorderRadius.circular(5)
       ),
     );
