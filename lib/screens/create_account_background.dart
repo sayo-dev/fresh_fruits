@@ -11,17 +11,23 @@ class CreateAccountBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage('images/create_account_image.png'),
-            colorFilter: ColorFilter.srgbToLinearGamma()
-          )
+      body: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(bottom: getProportionateScreenHeight(455)),
+            child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fitWidth,
+                image: AssetImage('images/create_account_image.png'),
+              )
+            ),
         ),
-        child: child ,
+          ),
+          child!
+      ]
       ),
     );
   }

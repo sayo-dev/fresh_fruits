@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(
-      Duration(seconds: 15),
+      Duration(seconds: 8),
         ()=>Navigator.pushReplacementNamed(context, 'OnBoardingScreen')
     );
   }

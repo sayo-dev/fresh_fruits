@@ -1,9 +1,13 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:fresh_fruits/screens/create_account_background.dart';
+import 'package:fresh_fruits/screens/categories_screen.dart';
 import 'package:fresh_fruits/screens/create_account_screen.dart';
+import 'package:fresh_fruits/screens/deals_screen.dart';
+import 'package:fresh_fruits/screens/favorite_screen.dart';
+import 'package:fresh_fruits/screens/home_page_screen.dart';
+import 'package:fresh_fruits/screens/nav_screen.dart';
 import 'package:fresh_fruits/screens/login_screen.dart';
 import 'package:fresh_fruits/screens/onboarding_screen.dart';
+import 'package:fresh_fruits/screens/profile_screen.dart';
 import 'package:fresh_fruits/screens/splash_screen.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
         'OnBoardingScreen': (context) => OnBoardingScreen(),
         'CreateAccountScreen': (context) => CreateAccountScreen(),
         'LoginScreen' : (context) => LoginScreen(),
-        'background' : (context) => CreateAccountBackground()
+        'NavScreen': (context) => NavScreen(),
       },
     );
   }
