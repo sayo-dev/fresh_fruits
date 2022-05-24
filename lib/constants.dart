@@ -5,7 +5,7 @@ class Palette{
   static  const Color kPrimaryColor =  Color(0xffFEC54B);
   static  const Color kAppBarIconColor =  Color(0xffE67F1E);
   static  const Color kPageControllerColor =  Color(0xff12B76A);
-
+  static  const Color kLightGrey =  Color(0xffF2F2F2);
 
 
 

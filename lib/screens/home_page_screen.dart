@@ -56,229 +56,237 @@ class _HomePageScreenState extends State<HomePageScreen> {
           padding: EdgeInsets.only(
               left: getProportionateScreenWidth(28)
           ),
-          child: SingleChildScrollView(
-            child: Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Good Morning',
-                  style: TextStyle(
-                    fontSize: getProportionateScreenWidth(14),
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Poppins_regular'
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right:getProportionateScreenWidth(28)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Damon Sims',
-                        style: TextStyle(
-                          fontSize: getProportionateScreenWidth(20),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Poppins_SemiBold'
-                        ),
-                      ),
-                      Icon(
-                        Icons.notifications,
-                        color: Color(0xff384144),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: getProportionateScreenHeight(18),
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height: getProportionateScreenHeight(162),
-                      width: getProportionateScreenWidth(double.infinity),
-                      child: PageView.builder(
-                        itemCount: slider.length,
-                          controller: PageController(viewportFraction: 0.84),
-                          onPageChanged: (index){
-                          setState(() {
-                            _selectedSlider = index;
-                          });
-                          },
-                          itemBuilder: (context, index) {
-                            return View1(
-                              image: slider[index]['image'] as String,
-                              text: slider[index]['text'] as String,
-                            );
-
-                      }),
+          child: Expanded(
+            child: Container(
+              child: Column(
+                 crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Good Morning',
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(14),
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Poppins_regular'
                     ),
-                SizedBox(height: getProportionateScreenHeight(18)),
-                Padding(
-                  padding: EdgeInsets.only(right: getProportionateScreenWidth(28)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Categories',
-                        style: TextStyle(
-                          fontSize: getProportionateScreenWidth(18),
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Poppins_SemiBold',
-                          color: Colors.black
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: widget.categoryOnPressed,
-                        icon: Icon(
-                          Icons.arrow_forward,
-                          color: Colors.black,
-                        ),
-                      )
-                    ],
                   ),
-                ),
-                SizedBox(
-                  height: getProportionateScreenHeight(13),
-                ),
-                Container(
-                  height: getProportionateScreenHeight(73),
-                  width: getProportionateScreenWidth(double.infinity),
-                  child: PageView.builder(
-                    itemCount: catSlide.length,
-                      controller: PageController(viewportFraction: 0.3),
-                      onPageChanged: (index){
-                      setState(() {
-                        _selectedCardSlider = index;
-                      });
-                      },
-                      itemBuilder: (context, index){
-                        return Padding(
-                          padding: EdgeInsets.only(
-                              right: getProportionateScreenWidth(8),
-                          bottom: getProportionateScreenHeight(5)
+                  Padding(
+                    padding: EdgeInsets.only(right:getProportionateScreenWidth(28)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Damon Sims',
+                          style: TextStyle(
+                            fontSize: getProportionateScreenWidth(20),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'Poppins_SemiBold'
                           ),
-                          child: CategorySlide(
-                            image: catSlide[index]['image'] as String,
-                          ),
-                        );
-                      }
-                  ),
-                ),
-                SizedBox(height: getProportionateScreenHeight(18)),
-                Padding(
-                  padding: EdgeInsets.only(right: getProportionateScreenWidth(28)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Trending Deals',
-                        style: TextStyle(
-                            fontSize: getProportionateScreenWidth(18),
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins_SemiBold',
-                            color: Colors.black
                         ),
-                      ),
-                      IconButton(
-                        onPressed: widget.trendingOnPressed,
-                        icon: Icon(
-                          Icons.arrow_forward,
-                          color: Colors.black,
-                        ),
-                      )
-                    ],
+                        Icon(
+                          Icons.notifications,
+                          color: Color(0xff384144),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: getProportionateScreenHeight(18)),
-                Padding(
-                  padding: EdgeInsets.only(right: getProportionateScreenWidth(28 )),
-                  child: Column(
-                              children: [
-                                Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                TrendingCard(
-                                image: 'images/td1.png',
-                                name: 'Avocado',
-                                price: '\$6.7',
-                                  color: fc ? Colors.red : Color(0xffF2F2F2),
-                                  onPressed: (){
+                  SizedBox(
+                    height: getProportionateScreenHeight(18),
+                  ),
+                  Expanded(
+                    child: Container(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: getProportionateScreenHeight(162),
+                              width: getProportionateScreenWidth(double.infinity),
+                              child: PageView.builder(
+                                itemCount: slider.length,
+                                  controller: PageController(viewportFraction: 0.84),
+                                  onPageChanged: (index){
                                   setState(() {
-                                    fc = !fc;
+                                    _selectedSlider = index;
                                   });
                                   },
+                                  itemBuilder: (context, index) {
+                                    return View1(
+                                      image: slider[index]['image'] as String,
+                                      text: slider[index]['text'] as String,
+                                    );
+
+                              }),
+                            ),
+                        SizedBox(height: getProportionateScreenHeight(18)),
+                        Padding(
+                          padding: EdgeInsets.only(right: getProportionateScreenWidth(28)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Categories',
+                                style: TextStyle(
+                                  fontSize: getProportionateScreenWidth(18),
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Poppins_SemiBold',
+                                  color: Colors.black
                                 ),
-                                TrendingCard(
-                                image: 'images/td2.png',
-                                name: 'Brocoli',
-                                price: '\$8.7',
-                                  color: sc ? Colors.red : Color(0xffF2F2F2),
-                                  onPressed: (){
-                                    setState(() {
-                                      sc = !sc;
-                                    });
-                                  },
-                                )
-                                ],
+                              ),
+                              IconButton(
+                                onPressed: widget.categoryOnPressed,
+                                icon: Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.black,
                                 ),
-                                SizedBox(height: getProportionateScreenHeight(20)),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    TrendingCard(
-                                      image: 'images/td3.png',
-                                      name: 'Tomatoes',
-                                      price: '\$4.9',
-                                      color: tc ? Colors.red : Color(0xffF2F2F2),
-                                      onPressed: (){
-                                        setState(() {
-                                          tc = !tc;
-                                        });
-                                      },
-                                    ),
-                                    TrendingCard(
-                                      image: 'images/td4.png',
-                                      name: 'Grapes',
-                                      price: '\$7.2',
-                                      color: lc ? Colors.red : Color(0xffF2F2F2),
-                                      onPressed: (){
-                                        setState(() {
-                                          lc = !lc;
-                                        });
-                                      },
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: getProportionateScreenHeight(40)),
-                                ElevatedButton(
-                                    onPressed: (){},
-                                    child: Text(
-                                      'More',
-                                      style: TextStyle(
-                                        color: Color(0xffF2F2F2),
-                                        fontSize: getProportionateScreenWidth(16),
-                                        fontWeight: FontWeight.w600,
-                                        fontFamily: 'Poppins_SemiBold'
-                                      ),
-                                    ),
-                                  style:ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30)
-                                    ),
-                                    primary: Colors.black,
-                                    minimumSize: Size(
-                                    getProportionateScreenWidth(double.infinity), 
-                                     getProportionateScreenHeight(60)
-                                    )
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: getProportionateScreenHeight(13),
+                        ),
+                        Container(
+                          height: getProportionateScreenHeight(73),
+                          width: getProportionateScreenWidth(double.infinity),
+                          child: PageView.builder(
+                            itemCount: catSlide.length,
+                              controller: PageController(viewportFraction: 0.3),
+                              onPageChanged: (index){
+                              setState(() {
+                                _selectedCardSlider = index;
+                              });
+                              },
+                              itemBuilder: (context, index){
+                                return Padding(
+                                  padding: EdgeInsets.only(
+                                      right: getProportionateScreenWidth(8),
+                                  bottom: getProportionateScreenHeight(5)
                                   ),
+                                  child: CategorySlide(
+                                    image: catSlide[index]['image'] as String,
+                                  ),
+                                );
+                              }
+                          ),
+                        ),
+                        SizedBox(height: getProportionateScreenHeight(18)),
+                        Padding(
+                          padding: EdgeInsets.only(right: getProportionateScreenWidth(28)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Trending Deals',
+                                style: TextStyle(
+                                    fontSize: getProportionateScreenWidth(18),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Poppins_SemiBold',
+                                    color: Colors.black
                                 ),
-                                SizedBox(height: getProportionateScreenHeight(40)),
-                              ],
-                            )
-                      )
-                  ],
-                ),
-              ],
+                              ),
+                              IconButton(
+                                onPressed: widget.trendingOnPressed,
+                                icon: Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: getProportionateScreenHeight(18)),
+                           Padding(
+                            padding: EdgeInsets.only(right: getProportionateScreenWidth(28)),
+                            child: Column(
+                                        children: [
+                                          Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                          TrendingCard(
+                                          image: 'images/td1.png',
+                                          name: 'Avocado',
+                                          price: '\$6.7',
+                                            color: fc ? Colors.red : Color(0xffF2F2F2),
+                                            onPressed: (){
+                                            setState(() {
+                                              fc = !fc;
+                                            });
+                                            },
+                                          ),
+                                          TrendingCard(
+                                          image: 'images/td2.png',
+                                          name: 'Brocoli',
+                                          price: '\$8.7',
+                                            color: sc ? Colors.red : Color(0xffF2F2F2),
+                                            onPressed: (){
+                                              setState(() {
+                                                sc = !sc;
+                                              });
+                                            },
+                                          )
+                                          ],
+                                          ),
+                                          SizedBox(height: getProportionateScreenHeight(16)),
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              TrendingCard(
+                                                image: 'images/td3.png',
+                                                name: 'Tomatoes',
+                                                price: '\$4.9',
+                                                color: tc ? Colors.red : Color(0xffF2F2F2),
+                                                onPressed: (){
+                                                  setState(() {
+                                                    tc = !tc;
+                                                  });
+                                                },
+                                              ),
+                                              TrendingCard(
+                                                image: 'images/td4.png',
+                                                name: 'Grapes',
+                                                price: '\$7.2',
+                                                color: lc ? Colors.red : Color(0xffF2F2F2),
+                                                onPressed: (){
+                                                  setState(() {
+                                                    lc = !lc;
+                                                  });
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(height: getProportionateScreenHeight(40)),
+                                          ElevatedButton(
+                                              onPressed: (){},
+                                              child: Text(
+                                                'More',
+                                                style: TextStyle(
+                                                  color: Color(0xffF2F2F2),
+                                                  fontSize: getProportionateScreenWidth(16),
+                                                  fontWeight: FontWeight.w600,
+                                                  fontFamily: 'Poppins_SemiBold'
+                                                ),
+                                              ),
+                                            style:ElevatedButton.styleFrom(
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(30)
+                                              ),
+                                              primary: Colors.black,
+                                              minimumSize: Size(
+                                              getProportionateScreenWidth(double.infinity),
+                                               getProportionateScreenHeight(60)
+                                              )
+                                            ),
+                                          ),
+                                          SizedBox(height: getProportionateScreenHeight(40)),
+                                        ],
+                                      )
+                                ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -306,9 +314,11 @@ class TrendingCard extends StatelessWidget {
             image: AssetImage('$image'),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenWidth(14),
-              vertical: getProportionateScreenHeight(16)
+            padding: EdgeInsets.only(
+              left: getProportionateScreenWidth(14),
+              right: getProportionateScreenWidth(14),
+              top: getProportionateScreenHeight(16),
+              bottom: getProportionateScreenHeight(28)
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

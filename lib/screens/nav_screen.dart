@@ -55,7 +55,12 @@ class _NavScreenState extends State<NavScreen> {
                   curve: Curves.fastLinearToSlowEaseIn);
             },
           ),
-          DealsScreen(),
+          DealsScreen(
+            onPressed: (){
+              _pageController.animateToPage(0, duration: Duration(microseconds: 1),
+                  curve: Curves.fastLinearToSlowEaseIn);
+            },
+          ),
           FavoriteScreen(),
           ProfileScreen()
         ],
