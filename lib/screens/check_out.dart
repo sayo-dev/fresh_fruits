@@ -354,144 +354,175 @@ class _CheckOutState extends State<CheckOut> {
                               SizedBox(
                                 height: getProportionateScreenHeight(38),
                               ),
-                              Container(
-                                width: getProportionateScreenWidth(double.infinity),
-                                height: getProportionateScreenHeight(142),
-                                child: PageView.builder(
-                                  controller: PageController(
-                                    viewportFraction: 0.8
+                              Padding(
+                                padding:EdgeInsets.all(0),
+                                child: selectedColor ? Container(
+                                  width: getProportionateScreenWidth(double.infinity),
+                                  height: getProportionateScreenHeight(142),
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.circular(20)
                                   ),
-                                  itemCount: cardItems.length,
-                                    itemBuilder: (context, index) => Padding(
-                                      padding:EdgeInsets.only(right: getProportionateScreenWidth(15)),
-                                      child: Container(
-                                        width: getProportionateScreenWidth(216),
-                                        height: getProportionateScreenHeight(141),
-                                        child: Image(
-                                          image: AssetImage(cardItems[index]['image'] as String),
-                                          fit: BoxFit.cover,
+                                  child: Image(
+                                    image: AssetImage('images/currency.jfif'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ) : Container(
+                                  width: getProportionateScreenWidth(double.infinity),
+                                  height: getProportionateScreenHeight(142),
+                                  child: PageView.builder(
+                                    controller: PageController(
+                                      viewportFraction: 0.8
+                                    ),
+                                    itemCount: cardItems.length,
+                                      itemBuilder: (context, index) => Padding(
+                                        padding:EdgeInsets.only(right: getProportionateScreenWidth(15)),
+                                        child: Container(
+                                          width: getProportionateScreenWidth(216),
+                                          height: getProportionateScreenHeight(141),
+                                          child: Image(
+                                            image: AssetImage(cardItems[index]['image'] as String),
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                      ),
-                                    )
+                                      )
+                                  ),
                                 ),
                               ),
                               SizedBox(
                                 height: getProportionateScreenHeight(20),
                               ),
-                              FieldTitle(
-                                text: 'Card Holder Name',
-                              ),
-                              SizedBox(
-                                height: getProportionateScreenHeight(10),
-                              ),
-                              Field(
-                                hintText: 'Md Rafatul islam',
-                                color: Color(0xfEAEAEA),
-                              ),
-                              SizedBox(
-                                height: getProportionateScreenHeight(20),
-                              ),
-                              FieldTitle(
-                                text: 'Card Number',
-                              ),
-                              SizedBox(
-                                height: getProportionateScreenHeight(10),
-                              ),
-                              Field(
-                                hintText: '333 4444 5555 6666',
-                                color: Color(0xfEAEAEA),
-                              ),
-                              SizedBox(
-                                height: getProportionateScreenHeight(20),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      FieldTitle(
-                                        text: 'Month/Year',
-                                      ),
-                                      SizedBox(
-                                        height: getProportionateScreenHeight(10),
-                                      ),
-                                      SmallField(),
-                                    ],
+                              Padding(
+                                padding: EdgeInsets.all(0),
+                                child: selectedColor ? Text(
+                                  'Please make your cash ready\non delivery!!!',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color:Palette.kAppBarIconColor,
+                                    fontSize: getProportionateScreenWidth(20),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Poppins_SemiBold'
                                   ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      FieldTitle(
-                                        text: 'CVV',
-                                      ),
-                                      SizedBox(
-                                        height: getProportionateScreenHeight(10),
-                                      ),
-                                      SmallField()
-                                    ],
-                                  )
-                                ],
-                              ),
-                              SizedBox(
-                                height: getProportionateScreenHeight(20),
-                              ),
-                              FieldTitle(
-                                text: 'Country',
-                              ),
-                              SizedBox(
-                                height: getProportionateScreenHeight(10),
-                              ),
-                              Field(
-                                hintText: 'Choose your country',
-                              ),
-                              SizedBox(
-                                height: getProportionateScreenHeight(20),
-                              ),
-                              Row(
-                                children: [
-                                  GestureDetector(
-                                    onTap: (){
-                                      setState(() {
-                                        save = !save;
-                                      });
-                                    },
-                                    child: Container(
-                                        width: getProportionateScreenWidth(24),
-                                        height: getProportionateScreenHeight(24),
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color:Color(0xff12B76A)
+                                ) : Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    FieldTitle(
+                                      text: 'Card Holder Name',
+                                    ),
+                                    SizedBox(
+                                      height: getProportionateScreenHeight(10),
+                                    ),
+                                    Field(
+                                      hintText: 'Md Rafatul islam',
+                                      color: Color(0xfEAEAEA),
+                                    ),
+                                    SizedBox(
+                                      height: getProportionateScreenHeight(20),
+                                    ),
+                                    FieldTitle(
+                                      text: 'Card Number',
+                                    ),
+                                    SizedBox(
+                                      height: getProportionateScreenHeight(10),
+                                    ),
+                                    Field(
+                                      hintText: '333 4444 5555 6666',
+                                      color: Color(0xfEAEAEA),
+                                    ),
+                                    SizedBox(
+                                      height: getProportionateScreenHeight(20),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            FieldTitle(
+                                              text: 'Month/Year',
                                             ),
-                                            borderRadius: BorderRadius.circular(7)
+                                            SizedBox(
+                                              height: getProportionateScreenHeight(10),
+                                            ),
+                                            SmallField(),
+                                          ],
                                         ),
-                                        child: save ? null : Padding(
-                                          padding: EdgeInsets.all(5.0),
-                                          child: Container(
-                                            width: getProportionateScreenWidth(12),
-                                            height: getProportionateScreenHeight(12),
-                                            decoration: BoxDecoration(
-                                                color:Color(0xff12B76A),
-                                                borderRadius: BorderRadius.circular(3)
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            FieldTitle(
+                                              text: 'CVV',
                                             ),
+                                            SizedBox(
+                                              height: getProportionateScreenHeight(10),
+                                            ),
+                                            SmallField()
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: getProportionateScreenHeight(20),
+                                    ),
+                                    FieldTitle(
+                                      text: 'Country',
+                                    ),
+                                    SizedBox(
+                                      height: getProportionateScreenHeight(10),
+                                    ),
+                                    Field(
+                                      hintText: 'Choose your country',
+                                    ),
+                                    SizedBox(
+                                      height: getProportionateScreenHeight(20),
+                                    ),
+                                    Row(
+                                      children: [
+                                        GestureDetector(
+                                          onTap: (){
+                                            setState(() {
+                                              save = !save;
+                                            });
+                                          },
+                                          child: Container(
+                                              width: getProportionateScreenWidth(24),
+                                              height: getProportionateScreenHeight(24),
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color:Color(0xff12B76A)
+                                                  ),
+                                                  borderRadius: BorderRadius.circular(7)
+                                              ),
+                                              child: save ? null : Padding(
+                                                padding: EdgeInsets.all(5.0),
+                                                child: Container(
+                                                  width: getProportionateScreenWidth(12),
+                                                  height: getProportionateScreenHeight(12),
+                                                  decoration: BoxDecoration(
+                                                      color:Color(0xff12B76A),
+                                                      borderRadius: BorderRadius.circular(3)
+                                                  ),
+                                                ),
+                                              )
+
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: getProportionateScreenWidth(16),
+                                        ),
+                                        Text(
+                                          'Save credit card details',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: getProportionateScreenWidth(16),
+                                              fontWeight: FontWeight.w400,
+                                              fontFamily: 'Poppins_Regular'
                                           ),
                                         )
-
+                                      ],
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: getProportionateScreenWidth(16),
-                                  ),
-                                  Text(
-                                    'Save credit card details',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: getProportionateScreenWidth(16),
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: 'Poppins_Regular'
-                                    ),
-                                  )
-                                ],
+                                  ],
+                                ),
                               ),
                             ],
                           ),
