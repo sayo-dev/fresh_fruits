@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fresh_fruits/constants.dart';
-import 'package:fresh_fruits/screens/check_out.dart';
+import 'package:fresh_fruits/screens/check_out_screen.dart';
 import 'package:fresh_fruits/size.config.dart';
 
-class Cart extends StatefulWidget {
+class CartScreen extends StatefulWidget {
   @override
-  State<Cart> createState() => _CartState();
+  State<CartScreen> createState() => _CartScreenState();
 }
 
-class _CartState extends State<Cart> {
+class _CartScreenState extends State<CartScreen> {
 
   String? get;
  int increment = 1;
@@ -70,7 +70,7 @@ class _CartState extends State<Cart> {
                       ),
                       TextButton(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => CheckOut()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => CheckOutScreen()));
                         },
                         child: Text(
                           'Place Order',

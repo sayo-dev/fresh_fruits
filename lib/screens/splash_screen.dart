@@ -11,17 +11,50 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin{
+
+  late AnimationController _animationController;
+  late Animation _animation;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
+    _animationController = AnimationController(
+        vsync: this,
+        duration: Duration(seconds: 3)
+    );
+
+    _animation = CurvedAnimation(parent: _animationController, curve: Curves.bounceInOut);
+
+    _animationController.forward();
+
+
+    _animation.addStatusListener((status) {
+      if(status == AnimationStatus.completed){
+        _animationController.reverse();
+      } else if(status == AnimationStatus.dismissed){
+        _animationController.forward();
+      }
+    });
+
+   _animation.addListener(() {
+     setState(() {});
+   });
+
     Timer(
-      Duration(seconds: 8),
+      Duration(seconds: 12),
         ()=>Navigator.pushReplacementNamed(context, 'OnBoardingScreen')
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _animation;
+    _animationController;
   }
 
   @override
@@ -35,8 +68,11 @@ class _SplashScreenState extends State<SplashScreen> {
          Padding(
            padding:EdgeInsets.only(bottom: getProportionateScreenHeight(127)),
            child: Center(
-             child: Image(
-               image: AssetImage('images/splash_image.png'),
+             child: Container(
+               height: getProportionateScreenHeight(_animation.value * 276),
+               child: Image(
+                 image: AssetImage('images/splash_image.png'),
+               ),
              ),
            ),
          ),

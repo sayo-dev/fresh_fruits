@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_fruits/screens/cart.dart';
+import 'package:fresh_fruits/screens/cart_screen.dart';
 
 import '../constants.dart';
 import '../size.config.dart';
 import 'deals_screen.dart';
 
-class AddCart extends StatefulWidget {
+class AddCartScreen extends StatefulWidget {
 
   @override
-  State<AddCart> createState() => _AddCartState();
+  State<AddCartScreen> createState() => _AddCartScreenState();
 }
 
-class _AddCartState extends State<AddCart> {
+class _AddCartScreenState extends State<AddCartScreen> {
   bool indicator = true;
   int size = 0;
 
@@ -352,7 +352,7 @@ class _AddCartState extends State<AddCart> {
                                     ElevatedButton(
                                       onPressed: (){
                                         Navigator.push(context, MaterialPageRoute(
-                                            builder:(context) => Cart() ));
+                                            builder:(context) => CartScreen() ));
                                       },
                                       child: Column(
                                         children: [

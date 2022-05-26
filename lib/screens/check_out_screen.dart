@@ -2,16 +2,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fresh_fruits/constants.dart';
-import 'package:fresh_fruits/screens/track_screen.dart';
+import 'package:fresh_fruits/screens/process_screen.dart';
 import 'package:fresh_fruits/size.config.dart';
 
-class CheckOut extends StatefulWidget {
+class CheckOutScreen extends StatefulWidget {
 
   @override
-  State<CheckOut> createState() => _CheckOutState();
+  State<CheckOutScreen> createState() => _CheckOutScreenState();
 }
 
-class _CheckOutState extends State<CheckOut> {
+class _CheckOutScreenState extends State<CheckOutScreen> {
 
   bool next = true;
   bool save = true;
@@ -360,7 +360,6 @@ class _CheckOutState extends State<CheckOut> {
                                   width: getProportionateScreenWidth(double.infinity),
                                   height: getProportionateScreenHeight(142),
                                   decoration: BoxDecoration(
-                                    color: Colors.blue,
                                     borderRadius: BorderRadius.circular(20)
                                   ),
                                   child: Image(
@@ -560,7 +559,7 @@ class _CheckOutState extends State<CheckOut> {
                     ),
                   ) : ElevatedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Review()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ProcessScreen()));
                     },
                     child: Text(
                       'CONFIRM ORDER',

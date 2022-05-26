@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_fruits/screens/categories_screen.dart';
+import 'package:fresh_fruits/screens/check_out_screen.dart';
 import 'package:fresh_fruits/screens/create_account_screen.dart';
 import 'package:fresh_fruits/screens/deals_screen.dart';
 import 'package:fresh_fruits/screens/favorite_screen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         'CreateAccountScreen': (context) => CreateAccountScreen(),
         'LoginScreen' : (context) => LoginScreen(),
         'NavScreen': (context) => NavScreen(),
+        'CheckoutScreen': (context) => CheckOutScreen()
       },
     );
   }

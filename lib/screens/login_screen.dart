@@ -77,7 +77,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         IconButton(
-                            onPressed: null,
+                            onPressed: (){
+                              Navigator.pushReplacementNamed(context, 'CreateAccountScreen');
+                            },
                             icon: Icon(
                               Icons.cancel,
                               size: 28,

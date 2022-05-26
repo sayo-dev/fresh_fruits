@@ -128,7 +128,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     children: [
                       ElevatedButton(
                         onPressed: (){
-                          Navigator.pushNamed(context, 'CreateAccountScreen');
+                          Navigator.pushReplacementNamed(context, 'CreateAccountScreen');
                         },
                         child: Text(
                           'CREATE AN ACCOUNT',
@@ -152,7 +152,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       SizedBox(height: getProportionateScreenHeight(10.0),),
                       ElevatedButton(
                         onPressed: (){
-                          Navigator.pushNamed(context, 'LoginScreen');
+                          Navigator.pushReplacementNamed(context, 'LoginScreen');
                         },
                         child: Text(
                           'LOGIN',

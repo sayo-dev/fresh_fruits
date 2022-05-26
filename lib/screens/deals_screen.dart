@@ -4,7 +4,7 @@ import 'package:fresh_fruits/constants.dart';
 import 'package:fresh_fruits/screens/home_page_screen.dart';
 import 'package:fresh_fruits/size.config.dart';
 
-import 'add_cart.dart';
+import 'add_cart_screen.dart';
 
 class DealsScreen extends StatefulWidget {
 
@@ -175,7 +175,7 @@ class _DealsScreenState extends State<DealsScreen> {
                                         GestureDetector(
                                           onTap:(){
                                             Navigator.push(context,
-                                                MaterialPageRoute(builder: (context)=> AddCart())
+                                                MaterialPageRoute(builder: (context)=> AddCartScreen())
                                             );
                                           },
                                           child: GestureDetector(
