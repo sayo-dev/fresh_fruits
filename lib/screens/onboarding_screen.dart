@@ -16,19 +16,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   List<Map<String, String>> sliders = [
     {
-      "image": "images/onboard_image1.svg",
+      "image": "images/onboard_image3.svg",
       "title": "Welcome to Fresh Fruits",
       "sub_title": "Grocery application",
       "text": "Lorem ipsum dolor sit amet, consectetur\n adipiscing elit, sed do eiusmod tempor "
     },
     {
-      "image": "images/rib.svg",
+      "image": "images/onboard_image2.svg",
       "title": "We provide best quality",
       "sub_title": " Fruits to your family",
       "text": "Lorem ipsum dolor sit amet, consectetur\n adipiscing elit, sed ."
     },
     {
-      "image": "images/onboard_image3.svg",
+      "image": "images/onboard_image1.svg",
       "title": "Fast and responsibly",
       "sub_title": "delivery by our courir ",
       "text": "Lorem ipsum dolor sit amet, consectetur\n adipiscing elit, sed do eiusmod tempor ",

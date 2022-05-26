@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
-                              fontFamily: 'Poppins_SemiBold'
+                              fontFamily: 'Poppins_SemiBold',
                           ),
                         ),
                         IconButton(

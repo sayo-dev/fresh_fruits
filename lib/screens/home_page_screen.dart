@@ -36,11 +36,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
   ];
   List<Map<String, String>> slider = [
     {
-      'image': 'images/content2.png',
+      'image': 'images/content1.png',
       'text': 'Recomended\nRecipe Today'
     },
     {
-      'image': 'images/content1.png',
+      'image': 'images/content2.png',
       'text': 'Fresh Fruits\nDelivery'
     }
 
@@ -201,27 +201,41 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                           Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
-                                          TrendingCard(
-                                          image: 'images/td1.png',
-                                          name: 'Avocado',
-                                          price: '\$6.7',
-                                            color: fc ? Colors.red : Color(0xffF2F2F2),
-                                            onPressed: (){
-                                            setState(() {
-                                              fc = !fc;
-                                            });
+                                          GestureDetector(
+                                            onDoubleTap: (){
+                                              setState(() {
+                                                fc = !fc;
+                                              });
                                             },
+                                            child: TrendingCard(
+                                            image: 'images/td1.png',
+                                            name: 'Avocado',
+                                            price: '\$6.7',
+                                              color: fc ? Colors.red : Color(0xffF2F2F2),
+                                              onPressed: (){
+                                              setState(() {
+                                                fc = !fc;
+                                              });
+                                              },
+                                            ),
                                           ),
-                                          TrendingCard(
-                                          image: 'images/td2.png',
-                                          name: 'Brocoli',
-                                          price: '\$8.7',
-                                            color: sc ? Colors.red : Color(0xffF2F2F2),
-                                            onPressed: (){
+                                          GestureDetector(
+                                            onDoubleTap: (){
                                               setState(() {
                                                 sc = !sc;
                                               });
                                             },
+                                            child: TrendingCard(
+                                            image: 'images/td2.png',
+                                            name: 'Brocoli',
+                                            price: '\$8.7',
+                                              color: sc ? Colors.red : Color(0xffF2F2F2),
+                                              onPressed: (){
+                                                setState(() {
+                                                  sc = !sc;
+                                                });
+                                              },
+                                            ),
                                           )
                                           ],
                                           ),
@@ -229,27 +243,41 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                             children: [
-                                              TrendingCard(
-                                                image: 'images/td3.png',
-                                                name: 'Tomatoes',
-                                                price: '\$4.9',
-                                                color: tc ? Colors.red : Color(0xffF2F2F2),
-                                                onPressed: (){
+                                              GestureDetector(
+                                                onDoubleTap: (){
                                                   setState(() {
                                                     tc = !tc;
                                                   });
                                                 },
+                                                child: TrendingCard(
+                                                  image: 'images/td3.png',
+                                                  name: 'Tomatoes',
+                                                  price: '\$4.9',
+                                                  color: tc ? Colors.red : Color(0xffF2F2F2),
+                                                  onPressed: (){
+                                                    setState(() {
+                                                      tc = !tc;
+                                                    });
+                                                  },
+                                                ),
                                               ),
-                                              TrendingCard(
-                                                image: 'images/td4.png',
-                                                name: 'Grapes',
-                                                price: '\$7.2',
-                                                color: lc ? Colors.red : Color(0xffF2F2F2),
-                                                onPressed: (){
+                                              GestureDetector(
+                                                onDoubleTap: (){
                                                   setState(() {
                                                     lc = !lc;
                                                   });
                                                 },
+                                                child: TrendingCard(
+                                                  image: 'images/td4.png',
+                                                  name: 'Grapes',
+                                                  price: '\$7.2',
+                                                  color: lc ? Colors.red : Color(0xffF2F2F2),
+                                                  onPressed: (){
+                                                    setState(() {
+                                                      lc = !lc;
+                                                    });
+                                                  },
+                                                ),
                                               )
                                             ],
                                           ),

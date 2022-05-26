@@ -90,7 +90,9 @@ flutter:
     - family: Poppins_SemiBold
       fonts:
         - asset: fonts/Poppins-SemiBold.ttf
-
+    - family: Poppins_Italic
+      fonts:
+        - asset: fonts/Poppins-Italic.ttf
     - family: Inter
       fonts:
         - asset: fonts/Inter-Black.otf
