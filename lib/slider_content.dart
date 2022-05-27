@@ -3,9 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'constants.dart';
 
 class SliderContent extends StatelessWidget {
-  const SliderContent(
-      {Key? key, required this.image, required this.text, required this.title, required this.sub_title})
-      : super(key: key);
+SliderContent({required this.image, required this.text, required this.title, required this.sub_title});
 
   final String image, text, title, sub_title;
 

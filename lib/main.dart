@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:fresh_fruits/screens/categories_screen.dart';
 import 'package:fresh_fruits/screens/check_out_screen.dart';
 import 'package:fresh_fruits/screens/create_account_screen.dart';
-import 'package:fresh_fruits/screens/deals_screen.dart';
-import 'package:fresh_fruits/screens/favorite_screen.dart';
-import 'package:fresh_fruits/screens/home_page_screen.dart';
 import 'package:fresh_fruits/screens/nav_screen.dart';
 import 'package:fresh_fruits/screens/login_screen.dart';
 import 'package:fresh_fruits/screens/onboarding_screen.dart';
-import 'package:fresh_fruits/screens/profile_screen.dart';
 import 'package:fresh_fruits/screens/splash_screen.dart';
 import 'package:device_preview/device_preview.dart';
 
 void main() {
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
         builder: (context) => MyApp())
   );
 }

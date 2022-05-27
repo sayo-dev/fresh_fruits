@@ -22,7 +22,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       "text": "Lorem ipsum dolor sit amet, consectetur\n adipiscing elit, sed do eiusmod tempor "
     },
     {
-      "image": "images/onboard_image2.svg",
+      "image": "images/Group 438.svg",
       "title": "We provide best quality",
       "sub_title": " Fruits to your family",
       "text": "Lorem ipsum dolor sit amet, consectetur\n adipiscing elit, sed ."
