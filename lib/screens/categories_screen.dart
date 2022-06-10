@@ -38,11 +38,11 @@ class CategoriesScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(36)
-        ),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: getProportionateScreenWidth(36)
+          ),
           child: Column(
             children: [
               SizedBox(
@@ -135,48 +135,44 @@ class CategoryCard extends StatelessWidget {
     return SizedBox(
       width: getProportionateScreenWidth(139),
       height: getProportionateScreenHeight(139),
-      child: Expanded(
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20)
-          ),
-          elevation: 5,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20)
+        ),
+        elevation: 5,
+        child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: getProportionateScreenWidth(16),
               vertical: getProportionateScreenWidth(8)
             ),
-            child: Expanded(
-              child: Container(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Image.asset('$image'),
-                      Text(
-                        title,
-                        style: TextStyle(
-                          color: Palette.kAppBarIconColor,
-                          fontSize: getProportionateScreenWidth(16),
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Poppins_Medium'
-                        ),
-                      ),
-                      Text(
-                        text,
-                        style: TextStyle(
-                            color: Palette.kAppBarIconColor,
-                            fontSize: getProportionateScreenWidth(9),
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins_Medium'
-                        ),
-                      ),
-                    ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Image.asset('$image'),
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: Palette.kAppBarIconColor,
+                      fontSize: getProportionateScreenWidth(16),
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Poppins_Medium'
+                    ),
                   ),
-                ),
+                  Text(
+                    text,
+                    style: TextStyle(
+                        color: Palette.kAppBarIconColor,
+                        fontSize: getProportionateScreenWidth(9),
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Poppins_Medium'
+                    ),
+                  ),
+                ],
               ),
             ),
-          )
-        ),
+          ),
+        )
       ),
     );
   }

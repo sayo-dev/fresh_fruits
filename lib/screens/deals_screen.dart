@@ -54,12 +54,10 @@ class _DealsScreenState extends State<DealsScreen> {
       ),
       body: Stack(
         children: [
-          Expanded(
-            child: Container(
-              height: getProportionateScreenHeight(150),
-              width: getProportionateScreenWidth(double.infinity),
-              color: Palette.kPrimaryColor,
-            ),
+          Container(
+            height: getProportionateScreenHeight(150),
+            width: getProportionateScreenWidth(double.infinity),
+            color: Palette.kPrimaryColor,
           ),
           Padding(
             padding:EdgeInsets.only(
@@ -103,344 +101,338 @@ class _DealsScreenState extends State<DealsScreen> {
                 SizedBox(
                   height: getProportionateScreenHeight(25),
                 ),
-                Expanded(
-                  child: Container(
-                    height: getProportionateScreenHeight(double.infinity),
-                    width: getProportionateScreenWidth(double.infinity),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20)
-                      )
+                Container(
+                  height: getProportionateScreenHeight(500),
+                  width: getProportionateScreenWidth(double.infinity),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)
+                    )
+                  ),
+                  child: Padding(
+                    padding:  EdgeInsets.only(
+                      top: getProportionateScreenHeight(22),
+                        left: getProportionateScreenWidth(28),
+                        right: getProportionateScreenWidth(28)
                     ),
-                    child: Padding(
-                      padding:  EdgeInsets.only(
-                        top: getProportionateScreenHeight(22),
-                          left: getProportionateScreenWidth(28),
-                          right: getProportionateScreenWidth(28)
-                      ),
-                      child: Column(
-                        children: [
-                          TextField(
-                            cursorColor:Color(0xff898989),
-                            style: TextStyle(color: Colors.black),
-                            decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Color(0xffF0F0F0),
-                                suffixIcon: Icon(
-                                  Icons.search,
-                                  color: Color(0xff898989),
-                                ),
-                                hintText: 'Search here',
-                                hintStyle: TextStyle(
-                                  color:Color(0xff898989),
-                                  fontSize: getProportionateScreenWidth(16),
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: 'Poppins_Regular'
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(18)
-                                ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.white
-                              )
-                            ),
-                              disabledBorder:  OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.white
-                                  )
+                    child: Column(
+                      children: [
+                        TextField(
+                          cursorColor:Color(0xff898989),
+                          style: TextStyle(color: Colors.black),
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Color(0xffF0F0F0),
+                              suffixIcon: Icon(
+                                Icons.search,
+                                color: Color(0xff898989),
                               ),
-                              enabledBorder:  OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.white
-                                  )
-                              )
+                              hintText: 'Search here',
+                              hintStyle: TextStyle(
+                                color:Color(0xff898989),
+                                fontSize: getProportionateScreenWidth(16),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'Poppins_Regular'
+                              ),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(18)
+                              ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white
+                            )
+                          ),
+                            disabledBorder:  OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.white
+                                )
                             ),
-                            onChanged: (String value) {
-                            },
+                            enabledBorder:  OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.white
+                                )
+                            )
                           ),
-                          SizedBox(
-                            height: getProportionateScreenHeight(18),
-                          ),
-                          Expanded(
-                            child: Container(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        GestureDetector(
-                                          onTap:(){
-                                            Navigator.push(context,
-                                                MaterialPageRoute(builder: (context)=> AddCartScreen())
-                                            );
-                                          },
-                                          child: GestureDetector(
-                                            onDoubleTap: (){
-                                              setState(() {
-                                                c1 = !c1;
-                                              });
-                                            },
-                                            child: TrendingCard(
-                                                image: 'images/trend1.png',
-                                                name: 'Avocado',
-                                                price: '\$6.7',
-                                                onPressed: (){
-                                                  setState(() {
-                                                    c1 = !c1;
-                                                  });
-                                                },
-                                                color: c1 ? Colors.red : Colors.white
-                                            ),
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onDoubleTap: (){
-                                            setState(() {
-                                              c2 = !c2;
-                                            });
-                                          },
-                                          child: TrendingCard(
-                                              image: 'images/trend2.png',
-                                              name: 'Blueberry',
-                                              price: '\$8.7',
-                                              onPressed: (){
-                                                setState(() {
-                                                  c2 = !c2;
-                                                });
-                                              },
-                                              color: c2 ? Colors.red : Colors.white
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                SizedBox(height: getProportionateScreenHeight(16)),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    GestureDetector(
+                          onChanged: (String value) {
+                          },
+                        ),
+                        SizedBox(
+                          height: getProportionateScreenHeight(18),
+                        ),
+                       Expanded(
+                         child: ListView(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    onTap:(){
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context)=> AddCartScreen())
+                                      );
+                                    },
+                                    child: GestureDetector(
                                       onDoubleTap: (){
                                         setState(() {
-                                          c3 = !c3;
+                                          c1 = !c1;
                                         });
                                       },
                                       child: TrendingCard(
-                                          image: 'images/trend3.png',
-                                          name: 'Orange',
-                                          price: '\$4.9',
-                                          onPressed: (){
-                                            setState(() {
-                                              c3 = !c3;
-                                            });
-                                          },
-                                          color: c3 ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onDoubleTap: (){
-                                        setState(() {
-                                          c4 = !c4;
-                                        });
-                                      },
-                                      child: TrendingCard(
-                                          image: 'images/trend4.png',
-                                          name: 'Banana',
-                                          price: '\$7.2',
-                                          onPressed: (){
-                                            setState(() {
-                                              c4 = !c4;
-                                            });
-                                          },
-                                          color: c4 ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: getProportionateScreenHeight(16)),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    GestureDetector(
-                                      onDoubleTap: (){
-                                        setState(() {
-                                          c5 = !c5;
-                                        });
-                                      },
-                                      child: TrendingCard(
-                                          image: 'images/trend5.png',
-                                          name: 'Tomatoes',
-                                          price: '\$4.9',
-                                          onPressed: (){
-                                            setState(() {
-                                              c5 = !c5;
-                                            });
-                                          },
-                                          color: c5 ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onDoubleTap: (){
-                                        setState(() {
-                                          c6 = !c6;
-                                        });
-                                      },
-                                      child: TrendingCard(
-                                          image: 'images/trend6.png',
-                                          name: 'Grapes',
-                                          price: '\$7.7',
-                                          onPressed: (){
-                                            setState(() {
-                                              c6 = !c6;
-                                            });
-                                          },
-                                          color: c6 ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: getProportionateScreenHeight(16)),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    GestureDetector(
-                                      onDoubleTap: (){
-                                        setState(() {
-                                          c7 = !c7;
-                                        });
-                                      },
-                                      child: TrendingCard(
-                                          image: 'images/trend7.png',
-                                          name: 'Mixed',
+                                          image: 'images/trend1.png',
+                                          name: 'Avocado',
                                           price: '\$6.7',
                                           onPressed: (){
                                             setState(() {
-                                              c7 = !c7;
+                                              c1 = !c1;
                                             });
                                           },
-                                          color: c7 ? Colors.red : Colors.white
+                                          color: c1 ? Colors.red : Colors.white
                                       ),
                                     ),
-                                    GestureDetector(
-                                      onDoubleTap: (){
+                                  ),
+                                  GestureDetector(
+                                    onDoubleTap: (){
+                                      setState(() {
+                                        c2 = !c2;
+                                      });
+                                    },
+                                    child: TrendingCard(
+                                        image: 'images/trend2.png',
+                                        name: 'Blueberry',
+                                        price: '\$8.7',
+                                        onPressed: (){
+                                          setState(() {
+                                            c2 = !c2;
+                                          });
+                                        },
+                                        color: c2 ? Colors.red : Colors.white
+                                    ),
+                                  ),
+                                ],
+                              ),
+                          SizedBox(height: getProportionateScreenHeight(16)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c3 = !c3;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend3.png',
+                                    name: 'Orange',
+                                    price: '\$4.9',
+                                    onPressed: (){
+                                      setState(() {
+                                        c3 = !c3;
+                                      });
+                                    },
+                                    color: c3 ? Colors.red : Colors.white
+                                ),
+                              ),
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c4 = !c4;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend4.png',
+                                    name: 'Banana',
+                                    price: '\$7.2',
+                                    onPressed: (){
+                                      setState(() {
+                                        c4 = !c4;
+                                      });
+                                    },
+                                    color: c4 ? Colors.red : Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: getProportionateScreenHeight(16)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c5 = !c5;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend5.png',
+                                    name: 'Tomatoes',
+                                    price: '\$4.9',
+                                    onPressed: (){
+                                      setState(() {
+                                        c5 = !c5;
+                                      });
+                                    },
+                                    color: c5 ? Colors.red : Colors.white
+                                ),
+                              ),
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c6 = !c6;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend6.png',
+                                    name: 'Grapes',
+                                    price: '\$7.7',
+                                    onPressed: (){
+                                      setState(() {
+                                        c6 = !c6;
+                                      });
+                                    },
+                                    color: c6 ? Colors.red : Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: getProportionateScreenHeight(16)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c7 = !c7;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend7.png',
+                                    name: 'Mixed',
+                                    price: '\$6.7',
+                                    onPressed: (){
+                                      setState(() {
+                                        c7 = !c7;
+                                      });
+                                    },
+                                    color: c7 ? Colors.red : Colors.white
+                                ),
+                              ),
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c8 = !c8;
+                                  });
+                                },
+                                child: GestureDetector(
+                                  onDoubleTap: (){
+                                    setState(() {
+                                      c8 = !c8;
+                                    });
+                                  },
+                                  child: TrendingCard(
+                                      image: 'images/trend8.png',
+                                      name: 'Strawberry',
+                                      price: '\$8.7',
+                                      onPressed: (){
                                         setState(() {
                                           c8 = !c8;
                                         });
                                       },
-                                      child: GestureDetector(
-                                        onDoubleTap: (){
-                                          setState(() {
-                                            c8 = !c8;
-                                          });
-                                        },
-                                        child: TrendingCard(
-                                            image: 'images/trend8.png',
-                                            name: 'Strawberry',
-                                            price: '\$8.7',
-                                            onPressed: (){
-                                              setState(() {
-                                                c8 = !c8;
-                                              });
-                                            },
-                                            color: c8 ? Colors.red : Colors.white
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: getProportionateScreenHeight(16)),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    GestureDetector(
-                                      onDoubleTap: (){
-                                        setState(() {
-                                          c9 = !c9;
-                                        });
-                                      },
-                                      child: TrendingCard(
-                                          image: 'images/trend9.png',
-                                          name: 'Apple',
-                                          price: '\$5.4',
-                                          onPressed: (){
-                                            setState(() {
-                                              c9 = !c9;
-                                            });
-                                          },
-                                          color: c9 ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onDoubleTap: (){
-                                        setState(() {
-                                          c10 = !c10;
-                                        });
-                                      },
-                                      child: TrendingCard(
-                                          image: 'images/trend10.png',
-                                          name: 'Pawpaw',
-                                          price: '\$6.2',
-                                          onPressed: (){
-                                            setState(() {
-                                              c10 = !c10;
-                                            });
-                                          },
-                                          color: c10 ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: getProportionateScreenHeight(16)),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    GestureDetector(
-                                      onDoubleTap: (){
-                                        setState(() {
-                                          c11 = !c11;
-                                        });
-                                      },
-                                      child: TrendingCard(
-                                          image: 'images/trend11.png',
-                                          name: 'Pineapple',
-                                          price: '\$8.9',
-                                          onPressed: (){
-                                            setState(() {
-                                              c11 = !c11;
-                                            });
-                                          },
-                                          color: c11 ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onDoubleTap: (){
-                                        setState(() {
-                                          c12 = !c12;
-                                        });
-                                      },
-                                      child: TrendingCard(
-                                          image: 'images/trend12.png',
-                                          name: 'Orange',
-                                          price: '\$6.8',
-                                          onPressed: (){
-                                            setState(() {
-                                              c12 = !c12;
-                                            });
-                                          },
-                                          color: c12 ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                  ],
+                                      color: c8 ? Colors.red : Colors.white
+                                  ),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
+                          SizedBox(height: getProportionateScreenHeight(16)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c9 = !c9;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend9.png',
+                                    name: 'Apple',
+                                    price: '\$5.4',
+                                    onPressed: (){
+                                      setState(() {
+                                        c9 = !c9;
+                                      });
+                                    },
+                                    color: c9 ? Colors.red : Colors.white
+                                ),
+                              ),
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c10 = !c10;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend10.png',
+                                    name: 'Pawpaw',
+                                    price: '\$6.2',
+                                    onPressed: (){
+                                      setState(() {
+                                        c10 = !c10;
+                                      });
+                                    },
+                                    color: c10 ? Colors.red : Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: getProportionateScreenHeight(16)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c11 = !c11;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend11.png',
+                                    name: 'Pineapple',
+                                    price: '\$8.9',
+                                    onPressed: (){
+                                      setState(() {
+                                        c11 = !c11;
+                                      });
+                                    },
+                                    color: c11 ? Colors.red : Colors.white
+                                ),
+                              ),
+                              GestureDetector(
+                                onDoubleTap: (){
+                                  setState(() {
+                                    c12 = !c12;
+                                  });
+                                },
+                                child: TrendingCard(
+                                    image: 'images/trend12.png',
+                                    name: 'Orange',
+                                    price: '\$6.8',
+                                    onPressed: (){
+                                      setState(() {
+                                        c12 = !c12;
+                                      });
+                                    },
+                                    color: c12 ? Colors.red : Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                            ],
+                          ),
+                       ),
+                      ],
                     ),
                   ),
                 )

@@ -42,9 +42,9 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
   @override
   void dispose() {
     // TODO: implement dispose
+    _animation.isDismissed;
+    _animationController.dispose();
     super.dispose();
-    _animation;
-    _animationController;
   }
 
   @override
@@ -54,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
-          child: Container(
+          child: SizedBox(
             height: getProportionateScreenHeight(_animation.value * 150),
               child: Image(
                   image: AssetImage('images/emoji2.jfif'),

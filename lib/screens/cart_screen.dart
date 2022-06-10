@@ -46,95 +46,89 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Expanded(
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: getProportionateScreenWidth(35),
-                    right: getProportionateScreenWidth(20)
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Item details',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: getProportionateScreenWidth(20),
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins_SemiBold'
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => CheckOutScreen()));
-                        },
-                        child: Text(
-                          'Place Order',
-                          style: TextStyle(
-                              color: Palette.kAppBarIconColor,
-                              fontSize: getProportionateScreenWidth(16),
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Poppins_Medium'
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: getProportionateScreenHeight(28),
-                ),
-                Expanded(
-                  child: Container(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: items.length,
-                       itemBuilder: (context, index) {
-                         return Column(
-                           children: [
-                             GestureDetector(
-                               onHorizontalDragStart: (drag){
-                                 setState(() {
-                                   dragged = !dragged;
-                                 });
-                               },
-                               child: !dragged ?  ItemContainer(
-                                 image: items[index]['image'] as String,
-                                 initialAmount: items[index]['initialAmount'] as String,
-                                 title: items[index]['title'] as String,
-                                 text: items[index]['text'] as String,
-                                 totalAmount: items[index]['initialAmount'] as String,
-                                 // totalAmount:  ( (items[index]['initialAmount'] as String) * items[index]['increment'] as String).toString(),
-                                 increment: increment.toString(),
-                                 onPressed1: (){
-                                   setState(() {
-                                     get = items[index]['increment'];
-                                     increment = get as int;
-                                     increment --;
-                                   });
-                                 },
-                                 onPressed2: (){
-                                   setState(() {
-                                     get = items[index]['increment'];
-                                     increment = get as int;
-                                     increment ++;
-                                   });
-                                 },
-
-                               ) : null,
-                             ),
-                           ],
-                         );
-                       }),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: getProportionateScreenWidth(35),
+                right: getProportionateScreenWidth(20)
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Item details',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: getProportionateScreenWidth(20),
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Poppins_SemiBold'
                     ),
                   ),
-              ],
+                  TextButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => CheckOutScreen()));
+                    },
+                    child: Text(
+                      'Place Order',
+                      style: TextStyle(
+                          color: Palette.kAppBarIconColor,
+                          fontSize: getProportionateScreenWidth(16),
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Poppins_Medium'
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
+            SizedBox(
+              height: getProportionateScreenHeight(28),
+            ),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: items.length,
+                 itemBuilder: (context, index) {
+                   return Column(
+                     children: [
+                       GestureDetector(
+                         onHorizontalDragStart: (drag){
+                           setState(() {
+                             dragged = !dragged;
+                           });
+                         },
+                         child: !dragged ?  ItemContainer(
+                           image: items[index]['image'] as String,
+                           initialAmount: items[index]['initialAmount'] as String,
+                           title: items[index]['title'] as String,
+                           text: items[index]['text'] as String,
+                           totalAmount: items[index]['initialAmount'] as String,
+                           // totalAmount:  ( (items[index]['initialAmount'] as String) * items[index]['increment'] as String).toString(),
+                           increment: increment.toString(),
+                           onPressed1: (){
+                             setState(() {
+                               get = items[index]['increment'];
+                               increment = get as int;
+                               increment --;
+                             });
+                           },
+                           onPressed2: (){
+                             setState(() {
+                               get = items[index]['increment'];
+                               increment = get as int;
+                               increment ++;
+                             });
+                           },
+
+                         ) : null,
+                       ),
+                     ],
+                   );
+                 }),
+              ),
+          ],
         ),
       ),
     );
@@ -173,7 +167,7 @@ class ItemContainer extends StatelessWidget {
                     top: getProportionateScreenHeight(73)
                   ),
                   child: Container(
-                    width: getProportionateScreenWidth(90),
+                    width: getProportionateScreenWidth(72),
                     height: getProportionateScreenHeight(40),
                     decoration: BoxDecoration(
                       color: Palette.kPrimaryColor,
@@ -248,10 +242,10 @@ class ItemContainer extends StatelessWidget {
                         color: Color(0xffEFEFEF),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Center(
+                      child: Align(
+                        alignment: Alignment.center,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             IconButton(
                                 onPressed: onPressed1,

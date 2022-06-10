@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fresh_fruits/constants.dart';
-import 'package:fresh_fruits/screens/create_account_background.dart';
 import 'package:fresh_fruits/size.config.dart';
 
 class CreateAccountScreen extends StatefulWidget {
@@ -26,78 +25,80 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(32)
         ),
-        content: Container(
+        content: SizedBox(
           height: getProportionateScreenHeight(380),
           width: getProportionateScreenWidth(333),
-          child: Stack(
-            children: [
-              Padding(
-                padding:EdgeInsets.only(
-                    left: getProportionateScreenWidth(10),
-                  right: getProportionateScreenWidth(5)
-                ),
-                child: Image(
-                  image: AssetImage('images/ribbon.png'),
+          child: SingleChildScrollView(
+            child: Stack(
+              children: [
+                Padding(
+                  padding:EdgeInsets.only(
+                      left: getProportionateScreenWidth(10),
+                    right: getProportionateScreenWidth(5)
                   ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: getProportionateScreenHeight(42),
-                  bottom: getProportionateScreenHeight(18),
-                  left: getProportionateScreenWidth(15),
-                  right: getProportionateScreenWidth(20)
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      'Congratulations!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color:Color(0xffE67F1E),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Inter-Bold'
-                      ),
+                  child: Image(
+                    image: AssetImage('images/ribbon.png'),
                     ),
-                    SizedBox(height: getProportionateScreenHeight(15)),
-                    Text(
-                      'Md Rafatul Islam',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color:Color(0xff7A1E76),
-                          fontSize: 12.9,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: getProportionateScreenHeight(42),
+                    bottom: getProportionateScreenHeight(18),
+                    left: getProportionateScreenWidth(15),
+                    right: getProportionateScreenWidth(20)
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Congratulations!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color:Color(0xffE67F1E),
+                          fontSize: 24,
                           fontWeight: FontWeight.w700,
                           fontFamily: 'Inter-Bold'
+                        ),
                       ),
-                    ),
-                       SizedBox(height: getProportionateScreenHeight(210)),
-                       ElevatedButton(
-                        onPressed: (){
-                          Navigator.pushReplacementNamed(context, 'LoginScreen');
-                        },
-                        child: Text(
-                          'SIGN IN',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'fonts/Poppins-Black.ttf'
+                      SizedBox(height: getProportionateScreenHeight(15)),
+                      Text(
+                        'Md Rafatul Islam',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color:Color(0xff7A1E76),
+                            fontSize: 12.9,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Inter-Bold'
+                        ),
+                      ),
+                         SizedBox(height: getProportionateScreenHeight(210)),
+                         ElevatedButton(
+                          onPressed: (){
+                            Navigator.pushReplacementNamed(context, 'LoginScreen');
+                          },
+                          child: Text(
+                            'SIGN IN',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'fonts/Poppins-Black.ttf'
+                            ),
+                          ),
+
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(30)),
+                              ),
+                              primary: Palette.kPrimaryColor,
+                              minimumSize: Size(double.infinity, getProportionateScreenHeight(46.0))
                           ),
                         ),
-
-                        style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
-                            ),
-                            primary: Palette.kPrimaryColor,
-                            minimumSize: Size(double.infinity, getProportionateScreenHeight(46.0))
-                        ),
-                      ),
-                  ],
-                ),
-              )
-            ],
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       );
@@ -106,180 +107,192 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CreateAccountBackground(
-     child: Expanded(
-       child: SingleChildScrollView(
-         child: Column(
-           crossAxisAlignment: CrossAxisAlignment.start,
-           children: [
-             SafeArea(
-               child: Padding(
-                 padding: EdgeInsets.only(left: getProportionateScreenWidth(10)),
-                 child: IconButton(
-                   onPressed:(){
-                     Navigator.pop(context);
-                   } ,
-                   icon: Icon(
-                     Icons.arrow_back,
-                     color: Color(0xffF2F2F2),
-                     size: 42,
-                   ),
-                 ),
-               ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+     body: Stack(
+       children: [
+         Padding(
+           padding: EdgeInsets.only(bottom: getProportionateScreenHeight(455)),
+           child: Container(
+             height: double.infinity,
+             width: double.infinity,
+             decoration: BoxDecoration(
+                 image: DecorationImage(
+                   fit: BoxFit.fitWidth,
+                   image: AssetImage('images/create_account_image.png'),
+                 )
              ),
-             Expanded(
-               child: Container(
-                 child: SingleChildScrollView(
-                   child: Padding(
-                     padding: EdgeInsets.only(top: getProportionateScreenHeight(203)),
-                     child: Container(
-                       width: getProportionateScreenWidth(double.infinity),
-                       height: getProportionateScreenHeight(480),
-                       decoration: BoxDecoration(
-                         color: Colors.white,
-                         borderRadius: BorderRadius.only(
-                           topLeft: Radius.circular(25),
-                           topRight: Radius.circular(25)
-                         )
-                       ),
-                       child: Padding(
-                         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                         child: Column(
-                           children: [
-                             SizedBox(
-                               height: getProportionateScreenHeight(10),
-                             ),
-                             Row(
-                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                               children: [
-                                 Text(
-                                   'Create your account',
-                                   style: TextStyle(
-                                     fontSize: 20,
-                                     fontWeight: FontWeight.w600,
-                                     fontFamily: 'Poppins_SemiBold'
-                                   ),
-                                 ),
-                                 IconButton(
-                                     onPressed: (){
-                                       Navigator.pushReplacementNamed(context, 'LoginScreen');
-                                     },
-                                     icon: Icon(
-                                       Icons.cancel,
-                                       size: 28,
-                                       color: Colors.black,
-                                     )
-                                 )
-                               ],
-                             ),
-                             SizedBox(height: getProportionateScreenHeight(40),),
-                             Row(
-                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                               children: [
-                                 FieldEdit(
-                                   keyboardType: TextInputType.text,
-                                   hintText: 'First Name',
-                                 ),
-                                 FieldEdit(
-                                   keyboardType: TextInputType.text,
-                                   hintText: 'Last Name',
-                                 )
-                               ],
-                             ),
-                             SizedBox(height: getProportionateScreenHeight(15),),
-                             FieldText(
-                               obscureText: _obscureText,
-                               keyboardType: TextInputType.emailAddress,
-                               hintText: 'Email',
-                               enabledBorderColor: Palette.kAppBarIconColor,
-                               focusedBorderColor: Palette.kAppBarIconColor,
-                             ),
-                             SizedBox(height: getProportionateScreenHeight(15),),
-                             FieldText(
-                               keyboardType: null,
-                               hintText: 'Password',
-                               enabledBorderColor: Palette.kAppBarIconColor,
-                               focusedBorderColor: Palette.kAppBarIconColor,
-                                 obscureText: _obscureText,
-                                 suffixIcon: _obscureText ? IconButton(
-                                   onPressed: _toggle,
-                                   icon:  Icon(
-                                       Icons.visibility_off,
-                                     color: Color(0xff66000000),
-                                   ),
-                                 ) : IconButton(
-                                   onPressed: _toggle,
-                                   icon:  Icon(
-                                       Icons.visibility,
-                                     color: Color(0xff66000000),
-                                   ),
-                                 ),
-                             ),
-                             SizedBox(height: getProportionateScreenHeight(15),),
-                             Column(
-                               children: [
-                                 DescriptionText(
-                                   text: 'By tapping Sign up you accept all',
-                                 ),
-                                 Row(
-                                   mainAxisAlignment: MainAxisAlignment.center,
-                                   children: [
-                                     ColoredText(
-                                       text: 'terms',
-                                         onPressed: (){
-                                         print('yo! its me terms');
-                                         },
-                                     ),
-                                     DescriptionText(
-                                       text: 'and',
-                                     ),
-                                     ColoredText(
-                                       text: 'condition',
-                                       onPressed: (){
-                                         print('yo! its me conditions');
-                                       },
-                                     ),
-                                   ],
-                                 ),
-                               ],
-                             ),
-                             SizedBox(height: getProportionateScreenHeight(15),),
-                             ElevatedButton(
-                               onPressed: (){
-                                createAlertDialog(context);
-                               },
-                               child: Text(
-                                 'CREATE AN ACCOUNT',
-                                 style: TextStyle(
-                                     color: Colors.black,
-                                     fontSize: 16,
-                                     fontWeight: FontWeight.w700,
-                                     fontFamily: 'fonts/Poppins-Black.ttf'
-                                 ),
-                               ),
-
-                               style: ElevatedButton.styleFrom(
-                                   elevation: 0,
-                                   shape: RoundedRectangleBorder(
-                                     borderRadius: BorderRadius.all(Radius.circular(30)),
-                                   ),
-                                   primary: Palette.kPrimaryColor,
-                                   minimumSize: Size(double.infinity, getProportionateScreenHeight(50.0))
-                               ),
-                             ),
-
-                           ],
-                         ),
-                       ),
+           ),
+         ),
+         SingleChildScrollView(
+           child: Column(
+             crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               SafeArea(
+                 child: Padding(
+                   padding: EdgeInsets.only(left: getProportionateScreenWidth(10)),
+                   child: IconButton(
+                     onPressed:(){
+                       Navigator.pop(context);
+                     } ,
+                     icon: Icon(
+                       Icons.arrow_back,
+                       color: Color(0xffF2F2F2),
+                       size: 42,
                      ),
                    ),
                  ),
                ),
-             )
+               Padding(
+                 padding: EdgeInsets.only(top: getProportionateScreenHeight(203)),
+                 child: Container(
+                   width: getProportionateScreenWidth(double.infinity),
+                   height: getProportionateScreenHeight(480),
+                   decoration: BoxDecoration(
+                     color: Colors.white,
+                     borderRadius: BorderRadius.only(
+                       topLeft: Radius.circular(25),
+                       topRight: Radius.circular(25)
+                     )
+                   ),
+                   child: Padding(
+                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                     child: SingleChildScrollView(
+                       child: Column(
+                         children: [
+                           SizedBox(
+                             height: getProportionateScreenHeight(10),
+                           ),
+                           Row(
+                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                             children: [
+                               Text(
+                                 'Create your account',
+                                 style: TextStyle(
+                                   fontSize: 20,
+                                   fontWeight: FontWeight.w600,
+                                   fontFamily: 'Poppins_SemiBold'
+                                 ),
+                               ),
+                               IconButton(
+                                   onPressed: (){
+                                     Navigator.pushReplacementNamed(context, 'LoginScreen');
+                                   },
+                                   icon: Icon(
+                                     Icons.cancel,
+                                     size: 28,
+                                     color: Colors.black,
+                                   )
+                               )
+                             ],
+                           ),
+                           SizedBox(height: getProportionateScreenHeight(40),),
+                           Row(
+                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                             children: [
+                               FieldEdit(
+                                 keyboardType: TextInputType.text,
+                                 hintText: 'First Name',
+                               ),
+                               FieldEdit(
+                                 keyboardType: TextInputType.text,
+                                 hintText: 'Last Name',
+                               )
+                             ],
+                           ),
+                           SizedBox(height: getProportionateScreenHeight(15),),
+                           FieldText(
+                             obscureText: _obscureText,
+                             keyboardType: TextInputType.emailAddress,
+                             hintText: 'Email',
+                             enabledBorderColor: Palette.kAppBarIconColor,
+                             focusedBorderColor: Palette.kAppBarIconColor,
+                           ),
+                           SizedBox(height: getProportionateScreenHeight(15),),
+                           FieldText(
+                             keyboardType: null,
+                             hintText: 'Password',
+                             enabledBorderColor: Palette.kAppBarIconColor,
+                             focusedBorderColor: Palette.kAppBarIconColor,
+                               obscureText: _obscureText,
+                               suffixIcon: _obscureText ? IconButton(
+                                 onPressed: _toggle,
+                                 icon:  Icon(
+                                     Icons.visibility_off,
+                                   color: Color(0xff66000000),
+                                 ),
+                               ) : IconButton(
+                                 onPressed: _toggle,
+                                 icon:  Icon(
+                                     Icons.visibility,
+                                   color: Color(0xff66000000),
+                                 ),
+                               ),
+                           ),
+                           SizedBox(height: getProportionateScreenHeight(15),),
+                           Column(
+                             children: [
+                               DescriptionText(
+                                 text: 'By tapping Sign up you accept all',
+                               ),
+                               Row(
+                                 mainAxisAlignment: MainAxisAlignment.center,
+                                 children: [
+                                   ColoredText(
+                                     text: 'terms',
+                                       onPressed: (){
+                                       print('yo! its me terms');
+                                       },
+                                   ),
+                                   DescriptionText(
+                                     text: 'and',
+                                   ),
+                                   ColoredText(
+                                     text: 'condition',
+                                     onPressed: (){
+                                       print('yo! its me conditions');
+                                     },
+                                   ),
+                                 ],
+                               ),
+                             ],
+                           ),
+                           SizedBox(height: getProportionateScreenHeight(15),),
+                           ElevatedButton(
+                             onPressed: (){
+                              createAlertDialog(context);
+                             },
+                             child: Text(
+                               'CREATE AN ACCOUNT',
+                               style: TextStyle(
+                                   color: Colors.black,
+                                   fontSize: 16,
+                                   fontWeight: FontWeight.w700,
+                                   fontFamily: 'fonts/Poppins-Black.ttf'
+                               ),
+                             ),
 
-           ],
+                             style: ElevatedButton.styleFrom(
+                                 elevation: 0,
+                                 shape: RoundedRectangleBorder(
+                                   borderRadius: BorderRadius.all(Radius.circular(30)),
+                                 ),
+                                 primary: Palette.kPrimaryColor,
+                                 minimumSize: Size(double.infinity, getProportionateScreenHeight(50.0))
+                             ),
+                           ),
+
+                         ],
+                       ),
+                     ),
+                   ),
+                 ),
+               )
+
+             ],
+           ),
          ),
-       ),
+       ],
      ),
     );
 

@@ -45,9 +45,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> with SingleTickerProvid
   @override
   void dispose() {
     // TODO: implement dispose
+    _animation.isDismissed;
+    _animationController.dispose();
     super.dispose();
-    _animation;
-    _animationController;
   }
 
 

@@ -162,7 +162,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
               ),
               ElevatedButton(
                 onPressed: (){
-                Navigator.pop(context);
+                  Navigator.of(context)
+                      .popUntil(ModalRoute.withName('NavScreen'));
                 },
                 child: Text(
                   'DONE',

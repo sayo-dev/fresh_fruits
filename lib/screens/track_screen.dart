@@ -47,7 +47,7 @@ class TrackScreen extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(left: getProportionateScreenWidth(30)),
-              child: Container(
+              child: SizedBox(
                 width: getProportionateScreenWidth(254),
                 height: getProportionateScreenHeight(155),
                 child: Image(
